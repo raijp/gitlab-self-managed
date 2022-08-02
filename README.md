@@ -34,14 +34,14 @@ docker run -d \
 # docker exec -it nginx-main service nginx reload
 ```
 
-# 2. Get a root password
+# 2. Take a break a lil bit maybe about 5mins then get a root password.
 ```
 docker exec -it gitlab-ce-1 grep 'Password:' /etc/gitlab/initial_root_password
 ```
 
-# 3. HOSTS file should be set the following ip and host name (x.x.x.x is hosting server ip)
+# 3. HOSTS file should be set the following ip and host name (x.x.x.x is hosting server ip).
 ```
 x.x.x.x gitlab.example.com
 ```
 
-# 4. Navigate to http://gitlab.example.com then set username(root) and password
+# 4. Navigate to http://gitlab.example.com then set username(root) and password.
