@@ -1,11 +1,9 @@
-# gitlab-self-managed
+# Run
 ```
-mkdir -p storage/gitlab/config
-mkdir -p storage/gitlab/logs
-mkdir -p storage/gitlab/data
+git clone https://github.com/raijp/gitlab-self-managed.git && cd gitlab-self-managed
 
-docker network rm gitlab
 docker rm -f gitlab-ce-1
+docker network rm gitlab
 
 docker network create --subnet=172.43.1.0/24 --gateway=172.43.1.1 gitlab
 
