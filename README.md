@@ -32,5 +32,5 @@ docker run -d \
 
 
 docker exec -it gitlab-ce-1 grep 'Password:' /etc/gitlab/initial_root_password
-# docker exec -it nginx1 service nginx reload
+# docker exec -it nginx-main service nginx reload
 ```
