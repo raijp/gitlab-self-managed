@@ -15,7 +15,7 @@ docker build -t nginx:bullseye nginx/.
 docker run -d \
   -p 80:80 \
   --restart always \
-  --mount type=bind,source="$(pwd)"/nginx/etc/nginx,target=/etc/nginx \
+  --mount type=bind,source="$(pwd)"/nginx/etc/nginx/conf.d,target=/etc/nginx/conf.d \
   --name nginx-main nginx:bullseye
 
 docker run -d \
