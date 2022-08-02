@@ -20,6 +20,6 @@ docker run -d \
   --shm-size 256m \
   gitlab/gitlab-ce:15.2.2-ce.0
 
-docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
+docker exec -it gitlab-ce-1 grep 'Password:' /etc/gitlab/initial_root_password
 
 ```
