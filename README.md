@@ -1,4 +1,4 @@
-# Run
+# 1. Run
 ```
 git clone https://github.com/raijp/gitlab-self-managed.git && cd gitlab-self-managed
 
@@ -31,6 +31,17 @@ docker run -d \
   --name gitlab-ce-1 gitlab/gitlab-ce:15.2.2-ce.0
 
 
-docker exec -it gitlab-ce-1 grep 'Password:' /etc/gitlab/initial_root_password
 # docker exec -it nginx-main service nginx reload
 ```
+
+# 2. Get a root password
+```
+docker exec -it gitlab-ce-1 grep 'Password:' /etc/gitlab/initial_root_password
+```
+
+# 3. HOSTS file should be set the following ip and host name (x.x.x.x is hosting server ip)
+```
+x.x.x.x gitlab.example.com
+```
+
+# 4. Navigate to http://gitlab.example.com then set username(root) and password
