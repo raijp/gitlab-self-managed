@@ -1,4 +1,4 @@
-# 1. Run
+# 1. Run.
 ```
 git clone https://github.com/raijp/gitlab-self-managed.git && cd gitlab-self-managed
 
