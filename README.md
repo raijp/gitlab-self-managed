@@ -24,9 +24,9 @@ docker run -d \
   -p 10080:80 \
   -p 10022:22 \
   --restart always \
-  --mount type=bind,source=$(pwd)/gitlab/storage/config,dst=/etc/gitlab,bind-propagation=shared \
-  --mount type=bind,source=$(pwd)/gitlab/storage/logs,dst=/var/log/gitlab,bind-propagation=shared \
-  --mount type=bind,source=$(pwd)/gitlab/storage/data,dst=/var/opt/gitlab,bind-propagation=shared \
+  --mount type=bind,source=$(pwd)/gitlab/storage/config,dst=/etc/gitlab,bind-propagation=rshared \
+  --mount type=bind,source=$(pwd)/gitlab/storage/logs,dst=/var/log/gitlab,bind-propagation=rshared \
+  --mount type=bind,source=$(pwd)/gitlab/storage/data,dst=/var/opt/gitlab,bind-propagation=rshared \
   --shm-size 256m \
   --name gitlab-ce-1 gitlab/gitlab-ce:15.2.2-ce.0
 
