@@ -4,7 +4,7 @@ git clone https://github.com/raijp/gitlab-self-managed.git && cd gitlab-self-man
 
 
 docker rm -f nginx-main
-docker rm -f gitlab-ce-1
+docker rm -f gitlab-ee-1
 docker network rm gitlab
 
 
@@ -28,7 +28,7 @@ docker run -d \
   --mount type=bind,source=$(pwd)/gitlab/storage/logs,dst=/var/log/gitlab \
   --mount type=bind,source=$(pwd)/gitlab/storage/data,dst=/var/opt/gitlab \
   --shm-size 256m \
-  --name gitlab-ce-1 gitlab/gitlab-ce:15.2.2-ce.0
+  --name gitlab-ee-1 gitlab/gitlab-ee:16.1.1-ee.0
 
 
 # docker exec -it nginx-main service nginx reload
@@ -36,7 +36,7 @@ docker run -d \
 
 # 2. Take a break a lil bit maybe about 5mins then get a root password.
 ```
-docker exec -it gitlab-ce-1 grep 'Password:' /etc/gitlab/initial_root_password
+docker exec -it gitlab-ee-1 grep 'Password:' /etc/gitlab/initial_root_password
 ```
 
 # 3. HOSTS file should be set the following ip and host name (x.x.x.x is hosting server ip).
