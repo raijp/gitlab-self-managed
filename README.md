@@ -10,20 +10,23 @@ docker network rm gitlab
 
 docker network create --subnet=172.43.1.0/24 --gateway=172.43.1.1 gitlab
 
-docker build -t nginx:bullseye nginx/.
+docker build --network host -t nginx:bullseye nginx/.
 
 docker run -d \
   -p 80:80 \
-  --restart always \
+  --restart unless-stopped \
+  --log-opt max-size=10m \
+  --log-opt max-file=3 \
   --mount type=bind,source="$(pwd)"/nginx/etc/nginx/conf.d,target=/etc/nginx/conf.d \
   --name nginx-main nginx:bullseye
 
 docker run -d \
   --network gitlab \
   --hostname gitlab.example.com \
+  --log-driver none \
   -p 10080:80 \
   -p 10022:22 \
-  --restart always \
+  --restart unless-stopped \
   --mount type=bind,source=$(pwd)/gitlab/storage/config,dst=/etc/gitlab \
   --mount type=bind,source=$(pwd)/gitlab/storage/logs,dst=/var/log/gitlab \
   --mount type=bind,source=$(pwd)/gitlab/storage/data,dst=/var/opt/gitlab \
